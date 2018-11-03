@@ -15,7 +15,7 @@ class Game {
         this.dealerHand = new Array();
         this.playerCount = 0;
         this.dealerCount = 0;
-        this.totalBet = 0;
+        // this.totalBet = 0;
         
     }
 
@@ -25,7 +25,7 @@ class Game {
             this.totalMoney -= betInt;
             this.totalBet = betInt;
         } else {
-            return "You don't have enough money to place this bet";
+            alert("You don't have enough money to place this bet");
         };
     };
 
@@ -120,7 +120,9 @@ class Game {
 
                 this.resetHandsAndCounts();
             }, 500);
-            return 'Se pasó! El casino siempre gana';
+
+            alert('Se pasó! El casino siempre gana');
+            $("#totalBet").text('0$');
         };
     };
 
@@ -185,18 +187,74 @@ class Game {
     };
 
     double() {
-
+        if(this.playerCount >=9 && this.playerCount <= 11){
+            this.totalMoney -= this.totalBet;
+            this.totalBet *= 2;
+            this.hit();
+            this.standAndCompareHands();
+        } else {
+            return 'Sorry, you can only double the bet with a count of 9, 10 or 11';
+        }
     };
 
-    split() {
+    // split() {
 
-    };
+    // };
 
-    newGame(){
+    // newGame(){
 
-    };
+    // };
 
-    updateBoard() {
+    // updateBoard() {
 
-    };
+    // };
 };
+
+$("#startNewGameButton").click(function()
+{player = new Game;
+    console.log('You began a new game')
+});
+
+
+
+$("#betButton").click(function(){
+    player.bet(100);
+    $("#totalMoney").text(player.totalMoney + '$');
+    $("#totalBet").text(player.totalBet + '$');
+});
+
+
+
+$("#dealButton").click(function(){
+    $("#dealerCardsDiv").empty();
+    $("#dealerCardsDiv").append("<p id = \"dealerCount\" class=\"countSize\"> (0) </p>");
+
+    $("#playerCardsDiv").empty();
+    $("#playerCardsDiv").append("<p id = \"playerCount\" class=\"countSize\"> (0) </p>");
+
+    player.resetHandsAndCounts();
+    player.shuffleAndDealCards();
+
+    $("#dealerCardsDiv").prepend('<p>' + player.dealerHand[0] + '</p>');
+
+    $("#playerCardsDiv").prepend('<p>' + player.playerHand[0] + '</p>' + '<p>' + player.playerHand[1] + '</p>');
+
+    $("#dealerCount").text('(' + player.dealerCount + ')');
+
+    $("#playerCount").text('(' + player.playerCount + ')');
+});
+
+
+
+
+$("#hitButton").click(function(){
+
+    player.hit();
+
+    $("#playerCardsDiv").prepend('<p>' + player.playerHand[player.playerHand.length - 1] + '</p>');
+
+    $("#playerCount").text('(' + player.playerCount + ')');      
+});
+
+
+//acabo de corregir un error que hacia que cuando llegabas a numero negativos, no saltase ningun mensaje. Ahora cuando intentas apostar y no tienes dinero suficiente, no te deja, y te salta una alarma que te dice que no tienes dinero suficiente. 

@@ -1,0 +1,85 @@
+#allTheContent {
+    
+}
+
+#header h1 {
+    font-size: 6em;
+}
+
+.flexCentered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.border {
+    border-width: 1px;
+    border-style: solid;
+}
+
+.margin {
+    margin: 8px 0;
+}
+
+.width60 {
+    width: 60vw;
+}
+
+.width35 {
+    width: 35vw;
+}
+
+.width13 {
+    width: 13vw;
+}
+
+p {
+    font-size: 47px;
+}
+
+.flexSpaceEvenly {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.flexSpaceAround {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#actualBetDiv p {
+    font-size: 26px;
+}
+
+.flexEnd {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#startNewGameButton button {
+    font-size: 26px;
+}
+
+#footerDiv2 p {
+    font-size: 26px;
+}
+
+button {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-size: 24px;
+}
+
+.countSize {
+    font-size: 29px;
+}
+
+.marginFooter {
+    margin-top: 80px;
+}

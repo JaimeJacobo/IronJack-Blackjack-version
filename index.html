@@ -8,7 +8,70 @@
     <title>Ironjack - Blackjack</title>
 </head>
 <body>
+<div id="allTheContent">
+    <div id="header" class="flexCentered border">
+            <h1>
+                Ironjack
+            </h1>
+    </div>
 
+    <div id="dealerCards" class="flexCentered margin">
+        <div id="dealerCardsDiv" class="flexSpaceEvenly border width60">
+           
+            <p id = "dealerCount" class="countSize">
+                (0)
+            </p>
+        </div>
+    </div>
+
+    <div id="actualBet" class="flexCentered margin">
+        <div id="actualBetDiv" class="flexCentered border width60">
+            <p id="totalBet">
+                0$
+            </p>
+        </div>
+    </div>
+
+    <div id="playerCards" class="flexCentered">
+        <div id="playerCardsDiv" class="flexSpaceEvenly border width60">
+            
+            <p id="playerCount" class="countSize">
+                (0)
+            </p>
+        </div>
+    </div>
+
+    <div id="footer" class="flexSpaceAround marginFooter">
+        <div id="startNewGameButton" class="flexSpaceEvenly border width13">
+                <button>
+                    Start New Game
+                </button>
+         </div>
+        <div id="footerDiv2" class="flexSpaceEvenly border width35">
+            <p id="totalMoney">
+                1000$
+            </p>
+            <div id="hitButton">
+                <button>
+                    Hit
+                </button>
+            </div>
+            <button>
+                Stand
+            </button>
+            <div id="betButton">
+                <button>
+                    Bet 100$
+                </button>
+            </div>
+            <div id="dealButton">
+                <button>
+                    Deal
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script
     src="https://code.jquery.com/jquery-3.3.1.min.js"
