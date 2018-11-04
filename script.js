@@ -37,6 +37,7 @@ class Game {
 
         if(this.totalBet > 0) {
 
+
             if(this.deckOfCards.indexOf(firstRandomNumber) == -1){
                 this.playerCount += 10;
             } else {
@@ -87,8 +88,18 @@ class Game {
             } else {
                 this.playerHand.push(thirdRandomNumber);
             };
+
+            if(this.playerCount == 9 || this.playerCount == 10 || this.playerCount == 11){
+                $("#footerDiv2").append("<div id=\"doubleButton\"> <button type=\"button\" class=\"btn btn-warning\">Double</button></div>");
+
+                $("#doubleButton").click(function(){
+                    player.double();
+
+                $("#doubleButton").remove();
+                });
+            }
         } else {
-            return 'Pleace, place your bet. Imbecil.';
+            return 'Pleace, place your bet.';
         };  
     };
 
@@ -176,22 +187,25 @@ class Game {
             
             this.totalMoney += Number(this.totalBet);
             alert('PUSH! Ha habido un empate');
-            console.log(this.totalMoney);
-            console.log(this.dealerCount);
             $("#totalBet").text('0$');
             $("#totalMoney").text(this.totalMoney + '$');
         };
     };
 
     double() {
-        if(this.playerCount >=9 && this.playerCount <= 11){
+            
             this.totalMoney -= this.totalBet;
             this.totalBet *= 2;
             this.hit();
+
+            $("#playerCardsDiv").prepend('<p>' + player.playerHand[player.playerHand.length - 1] + '</p>');
+        
+            $("#playerCount").text('(' + player.playerCount + ')');  
+
             this.standAndCompareHands();
-        } else {
-            return 'Sorry, you can only double the bet with a count of 9, 10 or 11';
-        }
+            $("#totalMoney").text(player.totalMoney + '$');
+
+           
     };
 
     // split() {
@@ -207,9 +221,31 @@ class Game {
     // };
 };
 
-$("#startNewGameButton").click(function()
-{player = new Game;
-    console.log('You began a new game')
+
+$("#footerDiv2").hide();
+
+$("#startNewGameButton").click(function(){
+
+    $("#footerDiv2").show();
+    
+    $("#dealerCardsDiv").empty();
+    $("#dealerCardsDiv").append("<p id = \"dealerCount\" class=\"countSize\"> (0) </p>");
+
+    $("#playerCardsDiv").empty();
+    $("#playerCardsDiv").append("<p id = \"playerCount\" class=\"countSize\"> (0) </p>");
+
+    $("#totalMoney").text('1000$');
+    $("#inputBox").val('');
+
+    $("#totalBet").text('0$');
+
+   
+
+   
+
+
+    player = new Game;
+    
 });
 
 
@@ -265,5 +301,7 @@ $("#hitButton").click(function(){
 $("#standButton").click(function(){
 player.standAndCompareHands();
 });
+
+
 
 
