@@ -24,8 +24,10 @@ class Game {
         if(betInt <= this.totalMoney){
             this.totalMoney -= betInt;
             this.totalBet = betInt;
-        } else {
+        }else if(betInt > this.totalMoney){
             alert("You don't have enough money to place this bet");
+        } else {
+            alert('Please, introduce a valid number.');
         };
     };
 
@@ -35,8 +37,11 @@ class Game {
         let secondRandomNumber = Math.floor(Math.random()*this.deckOfCards.length + 1);
         let thirdRandomNumber = Math.floor(Math.random()*this.deckOfCards.length + 1);
 
-        if(this.totalBet > 0) {
+        if(this.totalBet <= 0){
 
+            alert('Pleace, place your bet.');
+
+        } else if(this.totalBet > 0) {
 
             if(this.deckOfCards.indexOf(firstRandomNumber) == -1){
                 this.playerCount += 10;
@@ -95,11 +100,9 @@ class Game {
                 $("#doubleButton").click(function(){
                     player.double();
 
-                $("#doubleButton").remove();
+                    $("#doubleButton").remove();
                 });
-            }
-        } else {
-            return 'Pleace, place your bet.';
+            };
         };  
     };
 
@@ -277,14 +280,16 @@ $("#dealButton").click(function(){
 
     player.resetHandsAndCounts();
     player.shuffleAndDealCards();
+    
+    if(player.totalBet > 0){
+        $("#dealerCardsDiv").prepend('<p>' + player.dealerHand[0] + '</p>');
 
-    $("#dealerCardsDiv").prepend('<p>' + player.dealerHand[0] + '</p>');
+        $("#playerCardsDiv").prepend('<p>' + player.playerHand[0] + '</p>' + '<p>' + player.playerHand[1] + '</p>');
 
-    $("#playerCardsDiv").prepend('<p>' + player.playerHand[0] + '</p>' + '<p>' + player.playerHand[1] + '</p>');
+        $("#dealerCount").text('(' + player.dealerCount + ')');
 
-    $("#dealerCount").text('(' + player.dealerCount + ')');
-
-    $("#playerCount").text('(' + player.playerCount + ')');
+        $("#playerCount").text('(' + player.playerCount + ')');
+    };   
 });
 
 
