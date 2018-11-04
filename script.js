@@ -31,61 +31,61 @@ class Game {
 
     shuffleAndDealCards(){
         
-        let firstRandomCard = Math.floor(Math.random()*this.deckOfCards.length + 1);
-        let secondRandomCard = Math.floor(Math.random()*this.deckOfCards.length + 1);
-        let thirdRandomCard = Math.floor(Math.random()*this.deckOfCards.length + 1);
+        let firstRandomNumber = Math.floor(Math.random()*this.deckOfCards.length + 1);
+        let secondRandomNumber = Math.floor(Math.random()*this.deckOfCards.length + 1);
+        let thirdRandomNumber = Math.floor(Math.random()*this.deckOfCards.length + 1);
 
         if(this.totalBet > 0) {
 
-            if(this.deckOfCards.indexOf(firstRandomCard) + 1 == 0){
+            if(this.deckOfCards.indexOf(firstRandomNumber) == -1){
                 this.playerCount += 10;
             } else {
-                this.playerCount += firstRandomCard;
+                this.playerCount += firstRandomNumber;
             };
 
 
-            if(this.deckOfCards.indexOf(secondRandomCard) + 1 == 0){
+            if(this.deckOfCards.indexOf(secondRandomNumber) == -1){
                 this.dealerCount += 10;
             } else {
-                this.dealerCount += secondRandomCard;
+                this.dealerCount += secondRandomNumber;
             };
 
 
-            if(this.deckOfCards.indexOf(thirdRandomCard) + 1 == 0){
+            if(this.deckOfCards.indexOf(thirdRandomNumber) == -1){
                 this.playerCount += 10;
             } else {
-                this.playerCount += thirdRandomCard;
+                this.playerCount += thirdRandomNumber;
             };
 
 
-            if(firstRandomCard == 11){
+            if(firstRandomNumber == 11){
                 this.playerHand.push('J');
-            } else if(firstRandomCard == 12){
+            } else if(firstRandomNumber == 12){
                 this.playerHand.push('Q');
-            } else if(firstRandomCard == 13){
+            } else if(firstRandomNumber == 13){
                 this.playerHand.push('K');
             } else {
-                this.playerHand.push(firstRandomCard);
+                this.playerHand.push(firstRandomNumber);
             };
 
-            if(secondRandomCard == 11){
+            if(secondRandomNumber == 11){
                 this.dealerHand.push('J');
-            } else if(secondRandomCard == 12){
+            } else if(secondRandomNumber == 12){
                 this.dealerHand.push('Q');
-            } else if(secondRandomCard == 13){
+            } else if(secondRandomNumber == 13){
                 this.dealerHand.push('K');
             } else {
-                this.dealerHand.push(secondRandomCard);
+                this.dealerHand.push(secondRandomNumber);
             };
 
-            if(thirdRandomCard == 11){
+            if(thirdRandomNumber == 11){
                 this.playerHand.push('J');
-            } else if(thirdRandomCard == 12){
+            } else if(thirdRandomNumber == 12){
                 this.playerHand.push('Q');
-            } else if(thirdRandomCard == 13){
+            } else if(thirdRandomNumber == 13){
                 this.playerHand.push('K');
             } else {
-                this.playerHand.push(thirdRandomCard);
+                this.playerHand.push(thirdRandomNumber);
             };
         } else {
             return 'Pleace, place your bet. Imbecil.';
@@ -116,10 +116,7 @@ class Game {
 
         if(this.playerCount >21){
             this.totalBet = 0;
-            setTimeout(()=>{
-
-                this.resetHandsAndCounts();
-            }, 500);
+           
 
             alert('HAS PERDIDO. Te has pasado.');
             $("#totalBet").text('0$');
@@ -217,7 +214,6 @@ $("#startNewGameButton").click(function()
 });
 
 
-
 $("#betButton").click(function(){
 
     $("#dealerCardsDiv").empty();
@@ -235,7 +231,6 @@ $("#betButton").click(function(){
 
     
 });
-
 
 
 $("#dealButton").click(function(){
@@ -266,6 +261,7 @@ $("#hitButton").click(function(){
 
     $("#playerCount").text('(' + player.playerCount + ')');      
 });
+
 
 $("#standButton").click(function(){
 player.standAndCompareHands();
