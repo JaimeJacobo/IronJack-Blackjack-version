@@ -67,6 +67,10 @@ p {
     font-size: 26px;
 }
 
+#footerDiv2 p {
+    font-size: 26px;
+}
+
 button {
     display: block;
     margin-block-start: 1em;

@@ -121,8 +121,9 @@ class Game {
                 this.resetHandsAndCounts();
             }, 500);
 
-            alert('Se pasó! El casino siempre gana');
+            alert('HAS PERDIDO. Te has pasado.');
             $("#totalBet").text('0$');
+            
         };
     };
 
@@ -147,42 +148,42 @@ class Game {
                 this.dealerHand.push('K');
             } else {
                 this.dealerHand.push(randomCard);
-            };
+            }; 
 
-            if(this.dealerCount > 21){
-                setTimeout(()=>{
-                
-                    this.resetHandsAndCounts();
-                }, 500);
-    
-                this.totalMoney += this.totalBet * 2;
-                return 'Se pasó! Player wins.';
-            };
+            $("#dealerCardsDiv").prepend('<p>' + player.dealerHand[player.dealerHand.length - 1] + '</p>');
         };
 
-        if(this.playerCount > this.dealerCount){
-            setTimeout(()=>{
-                
-                this.resetHandsAndCounts();
-            }, 500);
 
+        $("#dealerCount").text('(' + player.dealerCount + ')');
+
+        if(this.dealerCount > 21){
+                
             this.totalMoney += this.totalBet * 2;
-            return 'Has ganado! Vete a casa ya anda';
+            alert( 'HAS GANADO. El croupier se ha pasado.');
+            $("#totalBet").text('0$');
+            $("#totalMoney").text(this.totalMoney + '$');
+
+
+        } else if(this.playerCount > this.dealerCount){
+            
+            this.totalMoney += this.totalBet * 2;
+            alert('HAS GANADO. Tienes una mejor mano que la del croupier.');
+            $("#totalBet").text('0$');
+            $("#totalMoney").text(this.totalMoney + '$');
 
         } else if (this.dealerCount > this.playerCount) {
-            setTimeout(()=>{
-                
-                this.resetHandsAndCounts();
-            }, 500);
-            return 'Has perdido! Con la de cosas que te podías haber comprado con 5 pavs..';
-
+            
+            alert('HAS PERDIDO. Tienes una mano peor que la del croupier.');
+            $("#totalBet").text('0$');
+            
         } else if (this.playerCount == this.dealerCount){
-            setTimeout(()=>{
-                
-                this.resetHandsAndCounts();
-            }, 500);
-            this.totalMoney += this.totalBet;
-            return 'Push! Ha habido un empate';
+            
+            this.totalMoney += Number(this.totalBet);
+            alert('PUSH! Ha habido un empate');
+            console.log(this.totalMoney);
+            console.log(this.dealerCount);
+            $("#totalBet").text('0$');
+            $("#totalMoney").text(this.totalMoney + '$');
         };
     };
 
@@ -218,9 +219,21 @@ $("#startNewGameButton").click(function()
 
 
 $("#betButton").click(function(){
-    player.bet(100);
+
+    $("#dealerCardsDiv").empty();
+    $("#dealerCardsDiv").append("<p id = \"dealerCount\" class=\"countSize\"> (0) </p>");
+
+    $("#playerCardsDiv").empty();
+    $("#playerCardsDiv").append("<p id = \"playerCount\" class=\"countSize\"> (0) </p>");
+    
+    player.bet($("#inputBox").val());
+
+    
+
     $("#totalMoney").text(player.totalMoney + '$');
     $("#totalBet").text(player.totalBet + '$');
+
+    
 });
 
 
@@ -245,8 +258,6 @@ $("#dealButton").click(function(){
 });
 
 
-
-
 $("#hitButton").click(function(){
 
     player.hit();
@@ -256,5 +267,8 @@ $("#hitButton").click(function(){
     $("#playerCount").text('(' + player.playerCount + ')');      
 });
 
+$("#standButton").click(function(){
+player.standAndCompareHands();
+});
 
-//acabo de corregir un error que hacia que cuando llegabas a numero negativos, no saltase ningun mensaje. Ahora cuando intentas apostar y no tienes dinero suficiente, no te deja, y te salta una alarma que te dice que no tienes dinero suficiente. 
+
