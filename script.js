@@ -116,7 +116,6 @@ class Game {
 
         if(this.playerCount >21){
             this.totalBet = 0;
-           
 
             alert('HAS PERDIDO. Te has pasado.');
             $("#totalBet").text('0$');
