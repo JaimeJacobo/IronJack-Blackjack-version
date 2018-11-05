@@ -37,6 +37,10 @@ MY CSS */
     height: 14vh;
 }
 
+.sizeOfTheCardsOnTheTable {
+    height: 22vh;
+}
+
 #header h1 {
     font-size: 6em;
 }

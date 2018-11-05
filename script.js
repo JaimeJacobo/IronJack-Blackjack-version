@@ -160,7 +160,7 @@ class Game {
                 this.dealerHand.push(randomCard);
             }; 
 
-            $("#dealerCardsDiv").prepend('<p>' + player.dealerHand[player.dealerHand.length - 1] + '</p>');
+            $("#dealerCardsDiv").prepend('<p>' + getCardImage(player.dealerHand[player.dealerHand.length - 1]) + '</p>');
         };
 
 
@@ -201,7 +201,7 @@ class Game {
             this.totalBet *= 2;
             this.hit();
 
-            $("#playerCardsDiv").prepend('<p>' + player.playerHand[player.playerHand.length - 1] + '</p>');
+            $("#playerCardsDiv").prepend('<p>' + getCardImage(player.playerHand[player.playerHand.length - 1]) + '</p>');
         
             $("#playerCount").text('(' + player.playerCount + ')');  
 
@@ -224,6 +224,179 @@ class Game {
     // };
 };
 
+let getCardImage = function(card){
+
+    let arrayOfFourElements = [1, 2, 3, 4];
+
+    let randomNumberForTheImage = Math.floor(Math.random()*arrayOfFourElements.length);
+
+    if(randomNumberForTheImage == 0){
+
+        if(card == 1){
+            return '<img src="images//AC.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 2){
+            return '<img src="images//2C.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 3){
+            return '<img src="images//3C.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 4){
+            return '<img src="images//4C.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 5){
+            return '<img src="images//5C.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 6){
+            return '<img src="images//6C.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 7){
+            return '<img src="images//7C.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 8){
+            return '<img src="images//8C.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 9){
+            return '<img src="images//9C.png" class="sizeOfTheCardsOnTheTable">';
+        } else if(card == 10){
+            return '<img src="images//10C.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 'J'){
+            return '<img src="images//JC.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 'Q'){
+            return '<img src="images//QC.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 'K'){
+            return '<img src="images//KC.png" class="sizeOfTheCardsOnTheTable">';
+        
+        }; 
+        
+
+    } else if(randomNumberForTheImage == 1){
+
+        if(card == 1){
+            return '<img src="images//AD.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 2){
+            return '<img src="images//2D.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 3){
+            return '<img src="images//3D.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 4){
+            return '<img src="images//4D.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 5){
+            return '<img src="images//5D.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 6){
+            return '<img src="images//6D.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 7){
+            return '<img src="images//7D.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 8){
+            return '<img src="images//8D.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 9){
+            return '<img src="images//9D.png" class="sizeOfTheCardsOnTheTable">';
+        } else if(card == 10){
+            return '<img src="images//10D.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 'J'){
+            return '<img src="images//JD.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 'Q'){
+            return '<img src="images//QD.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 'K'){
+            return '<img src="images//KD.png" class="sizeOfTheCardsOnTheTable">';
+        };
+
+
+    } else if(randomNumberForTheImage == 2){
+
+        if(card == 1){
+            return '<img src="images//AH.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 2){
+            return '<img src="images//2H.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 3){
+            return '<img src="images//3H.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 4){
+            return '<img src="images//4H.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 5){
+            return '<img src="images//5H.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 6){
+            return '<img src="images//6H.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 7){
+            return '<img src="images//7H.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 8){
+            return '<img src="images//8H.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 9){
+            return '<img src="images//9H.png" class="sizeOfTheCardsOnTheTable">';
+        } else if(card == 10){
+            return '<img src="images//10H.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 'J'){
+            return '<img src="images//JH.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 'Q'){
+            return '<img src="images//QH.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 'K'){
+            return '<img src="images//KH.png" class="sizeOfTheCardsOnTheTable">';
+        };
+    } else if(randomNumberForTheImage == 3){
+
+        if(card == 1){
+            return '<img src="images//AS.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 2){
+            return '<img src="images//2S.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 3){
+            return '<img src="images//3S.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 4){
+            return '<img src="images//4S.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 5){
+            return '<img src="images//5S.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 6){
+            return '<img src="images//6S.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 7){
+            return '<img src="images//7S.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 8){
+            return '<img src="images//8S.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 9){
+            return '<img src="images//9S.png" class="sizeOfTheCardsOnTheTable">';
+        } else if(card == 10){
+            return '<img src="images//10S.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 'J'){
+            return '<img src="images//JS.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 'Q'){
+            return '<img src="images//QS.png" class="sizeOfTheCardsOnTheTable">';
+
+        } else if(card == 'K'){
+            return '<img src="images//KS.png" class="sizeOfTheCardsOnTheTable">';
+        };
+    };   
+};
 
 $("#footerDiv2").hide();
 
@@ -282,9 +455,13 @@ $("#dealButton").click(function(){
     player.shuffleAndDealCards();
     
     if(player.totalBet > 0){
-        $("#dealerCardsDiv").prepend('<p>' + player.dealerHand[0] + '</p>');
+       
 
-        $("#playerCardsDiv").prepend('<p>' + player.playerHand[0] + '</p>' + '<p>' + player.playerHand[1] + '</p>');
+        // $("#dealerCardsDiv").prepend('<img src="images//10C.png" class="sizeOfTheCardsOnTheTable">');
+
+        $("#dealerCardsDiv").prepend('<p>' + getCardImage(player.dealerHand[0]) + '</p>');
+
+        $("#playerCardsDiv").prepend('<p>' + getCardImage(player.playerHand[0]) + '</p>' + '<p>' + getCardImage(player.playerHand[1]) + '</p>');
 
         $("#dealerCount").text('(' + player.dealerCount + ')');
 
@@ -298,7 +475,7 @@ $("#hitButton").click(function(){
     $("#doubleButton").remove();
     player.hit();
 
-    $("#playerCardsDiv").prepend('<p>' + player.playerHand[player.playerHand.length - 1] + '</p>');
+    $("#playerCardsDiv").prepend('<p>' + getCardImage(player.playerHand[player.playerHand.length - 1]) + '</p>');
 
     $("#playerCount").text('(' + player.playerCount + ')');      
 });
