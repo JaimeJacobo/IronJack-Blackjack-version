@@ -131,7 +131,7 @@ class Game {
         if(this.playerCount >21){
             this.totalBet = 0;
 
-            alert('HAS PERDIDO. Te has pasado.');
+            alert('YOU LOOSE. You bust.');
             $("#totalBet").text('0$');
             
         };
@@ -169,7 +169,7 @@ class Game {
         if(this.dealerCount > 21){
                 
             this.totalMoney += this.totalBet * 2;
-            alert( 'HAS GANADO. El croupier se ha pasado.');
+            alert( 'YOU WIN. The dealer bust.');
             $("#totalBet").text('0$');
             $("#totalMoney").text(this.totalMoney + '$');
 
@@ -177,19 +177,19 @@ class Game {
         } else if(this.playerCount > this.dealerCount){
             
             this.totalMoney += this.totalBet * 2;
-            alert('HAS GANADO. Tienes una mejor mano que la del croupier.');
+            alert('YOU WIN. Your hand is better than the dealer\'s'.);
             $("#totalBet").text('0$');
             $("#totalMoney").text(this.totalMoney + '$');
 
         } else if (this.dealerCount > this.playerCount) {
             
-            alert('HAS PERDIDO. Tienes una mano peor que la del croupier.');
+            alert('YOU LOOSE. your hand is worse than the dealer\;s.');
             $("#totalBet").text('0$');
             
         } else if (this.playerCount == this.dealerCount){
             
             this.totalMoney += Number(this.totalBet);
-            alert('PUSH! Ha habido un empate');
+            alert('PUSH! Your hand is the same as the dealer\'s.');
             $("#totalBet").text('0$');
             $("#totalMoney").text(this.totalMoney + '$');
         };
