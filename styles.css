@@ -33,6 +33,10 @@ MY CSS */
     
 }
 
+#spade {
+    height: 14vh;
+}
+
 #header h1 {
     font-size: 6em;
 }

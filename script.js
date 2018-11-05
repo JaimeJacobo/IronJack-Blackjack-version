@@ -15,7 +15,7 @@ class Game {
         this.dealerHand = new Array();
         this.playerCount = 0;
         this.dealerCount = 0;
-        // this.totalBet = 0;
+
         
     }
 
@@ -295,6 +295,7 @@ $("#dealButton").click(function(){
 
 $("#hitButton").click(function(){
 
+    $("#doubleButton").remove();
     player.hit();
 
     $("#playerCardsDiv").prepend('<p>' + player.playerHand[player.playerHand.length - 1] + '</p>');
