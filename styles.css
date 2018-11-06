@@ -30,7 +30,11 @@ MY CSS */
 
 
 #allTheContent {
-    
+    background-image: url(images//gameBoard.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
 }
 
 #spade {
@@ -41,8 +45,11 @@ MY CSS */
     height: 22vh;
 }
 
+
+
 #header h1 {
-    font-size: 6em;
+    font-size: 5em;
+    color: rgb(224, 224, 42);
 }
 
 .flexCentered {
@@ -125,4 +132,9 @@ button {
 
 .marginFooter {
     margin-top: 80px;
+}
+
+#chips img{
+    width: 30px;
+    height: 30px;
 }
