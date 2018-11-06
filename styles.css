@@ -43,7 +43,7 @@ MY CSS */
 }
 
 .sizeOfTheCardsOnTheTable {
-    height: 22vh;
+    height: 16vh;
 }
 
 
@@ -132,10 +132,18 @@ button {
 }
 
 .marginFooter {
-    margin-top: 80px;
+    margin-top: 15px;
 }
 
 #chips img{
     width: 30px;
     height: 30px;
+}
+
+.easterEgg {
+    height: 100vh;
+}
+
+#playerCardsDiv {
+    margin-top: 150px;
 }
