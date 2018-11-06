@@ -4,17 +4,17 @@ class Game {
         this.deckOfCards = [
             {name: 'A', value: 11},
             {name: '2', value: 2}, 
-            {name: '3', value: 3}, 
-            {name: '4', value: 4}, 
-            {name: '5', value: 5}, 
-            {name: '6', value: 6}, 
-            {name: '7', value: 7}, 
-            {name: '8', value: 8}, 
-            {name: '9', value: 9}, 
-            {name: '10', value: 10}, 
-            {name: 'J', value: 10}, 
-            {name: 'Q', value: 10}, 
-            {name: 'K', value: 10}
+            // {name: '3', value: 3}, 
+            // {name: '4', value: 4}, 
+            // {name: '5', value: 5}, 
+            // {name: '6', value: 6}, 
+            // {name: '7', value: 7}, 
+            // {name: '8', value: 8}, 
+            // {name: '9', value: 9}, 
+            // {name: '10', value: 10}, 
+            // {name: 'J', value: 10}, 
+            // {name: 'Q', value: 10}, 
+            // {name: 'K', value: 10}
         ];
         this.playerHand = new Array();
         this.dealerHand = new Array();
@@ -70,15 +70,22 @@ class Game {
         let secondRandomNumber = Math.floor(Math.random()*this.deckOfCards.length);
         let thirdRandomNumber = Math.floor(Math.random()*this.deckOfCards.length);
 
-        this.playerHand.push(this.deckOfCards[firstRandomNumber]);
-        this.dealerHand.push(this.deckOfCards[secondRandomNumber]);
-        this.playerHand.push(this.deckOfCards[thirdRandomNumber]);
+        this.playerHand.push(Object.assign({},this.deckOfCards[firstRandomNumber]));
+
+        this.dealerHand.push(Object.assign({},this.deckOfCards[secondRandomNumber]));
+
+        this.playerHand.push(Object.assign({},this.deckOfCards[thirdRandomNumber]));
+
+        if(this.playerHand[0].name == 'A' && this.playerHand[1].name == 'A'){
+            this.playerHand[0].value = 1;
+        };
 
         for (let i = 0; i < this.playerHand.length; i++){
             this.playerCount += this.playerHand[i].value;
         };
 
         this.dealerCount += this.dealerHand[0].value;
+
     };
 
 
@@ -86,7 +93,7 @@ class Game {
 
         let randomNumber = Math.floor(Math.random()*this.deckOfCards.length);
 
-        this.playerHand.push(this.deckOfCards[randomNumber]);
+        this.playerHand.push(Object.assign({},this.deckOfCards[randomNumber]));
 
         this.playerCount += this.deckOfCards[randomNumber].value;
     };
@@ -95,7 +102,7 @@ class Game {
 
         let randomNumber = Math.floor(Math.random()*this.deckOfCards.length);
 
-        this.dealerHand.push(this.deckOfCards[randomNumber]);
+        this.dealerHand.push(Object.assign({},this.deckOfCards[randomNumber]));
 
         this.dealerCount += this.deckOfCards[randomNumber].value;
 
@@ -106,12 +113,39 @@ class Game {
 
     standAndCompareHands() {
         
-        while(this.dealerCount < 17){
+       let runTheLoop = function(){
+            while(blackjack.dealerCount < 17){
 
-                this.dealerHit();
+                blackjack.dealerHit();
+
+                if(blackjack.dealerCount > 21){
+
+
+                    for(let i = 0; i < blackjack.dealerHand.length; i++){
+                         if(blackjack.dealerHand[i].value == 11){
+                             blackjack.dealerHand[i].value = 1;
+                            break;
+                         };
+                    };
+            
+                    blackjack.dealerCount = 0;
+            
+                    for (let i = 0; i < blackjack.dealerHand.length; i++){
+                            blackjack.dealerCount += blackjack.dealerHand[i].value;
+                    };
+
+                };
+            };    
         };
 
+
+        runTheLoop();
+
+    
         $("#dealerCount").text('(' + this.dealerCount + ')');
+      
+        return this.dealerCount;
+        
     };
 
 

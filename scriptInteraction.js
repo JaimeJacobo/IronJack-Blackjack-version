@@ -41,25 +41,47 @@ $("#dealButton").click(function(){
         $("#dealerCardsDiv").append("<p>" + blackjack.getCardImage(blackjack.dealerHand[0].name) + "</p>");
 
         $("#dealButton").hide();
+      
     }; 
 });
 
 
 $("#hitButton").click(function(){
-
+    
     blackjack.playerHit();
 
     $("#playerCount").text('(' + blackjack.playerCount + ')');
 
     $("#playerCardsDiv").append("<p>" + blackjack.getCardImage(blackjack.playerHand[blackjack.playerHand.length - 1].name) + "</p>");
 
+
+
     if(blackjack.playerCount > 21){
 
-        setTimeout(function(){
-            alert('YOU LOSE! You bust.');
-        }, 100);
 
-        blackjack.endGame();
+        for(let i = 0; i < blackjack.playerHand.length; i++){
+
+            if(blackjack.playerHand[i].value == 11){
+                blackjack.playerHand[i].value = 1;
+                break;
+            };
+        };
+
+        blackjack.playerCount = 0;
+
+        for (let i = 0; i < blackjack.playerHand.length; i++){
+            blackjack.playerCount += blackjack.playerHand[i].value;
+        };
+
+        $("#playerCount").text('(' + blackjack.playerCount + ')');
+
+        if(blackjack.playerCount > 21){
+            setTimeout(function(){
+                alert('YOU LOSE! You bust.');
+            }, 100);
+
+            blackjack.endGame();
+        };
     };
 });
 
