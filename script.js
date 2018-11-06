@@ -32,6 +32,10 @@ class Game {
 
     resetHandsAndCounts() {
 
+        this.playerHand = new Array();
+        this.dealerHand = new Array();
+        this.playerCount = 0;
+        this.dealerCount = 0;
     };
 
     bet(betInt) {
@@ -57,13 +61,35 @@ class Game {
     };
 
 
-    hit() {
+    playerHit() {
 
+        let randomNumber = Math.floor(Math.random()*this.deckOfCards.length);
+
+        this.playerHand.push(this.deckOfCards[randomNumber]);
+
+        this.playerCount += this.deckOfCards[randomNumber].value;
+    };
+
+    dealerHit() {
+
+        let randomNumber = Math.floor(Math.random()*this.deckOfCards.length);
+
+        this.dealerHand.push(this.deckOfCards[randomNumber]);
+
+        this.dealerCount += this.deckOfCards[randomNumber].value;
+
+        $("#dealerCardsDiv").append("<p>" + blackjack.getCardImage(blackjack.dealerHand[blackjack.dealerHand.length - 1].name) + "</p>");
     };
 
 
     standAndCompareHands() {
+        
+        while(this.dealerCount < 17){
 
+            this.dealerHit();
+        };
+
+        $("#dealerCount").text('(' + this.dealerCount + ')');
     };
 
 
@@ -71,9 +97,20 @@ class Game {
 
     };
 
+    compareResults(){
+
+    };
+
 
     clearTheBoard() {
         
+        $("#playerCardsDiv").empty();
+        $("#dealerCardsDiv").empty();
+        
+        $("#playerCardsDiv").append("<p id = 'playerCount' class='countSize'> (0) </p>");
+        $("#dealerCardsDiv").append("<p id = 'dealerCount' class='countSize'> (0) </p>");
+
+        this.resetHandsAndCounts();
     };
 
 
