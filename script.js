@@ -289,6 +289,20 @@ class Game {
             };
         };   
     };
+
+    endGame() {
+        $("#hitButton").hide();
+        $("#standButton").hide();
+        $("#footerDiv2").append("<div id='clearButton'> <button type='button' class='btn btn-secondary'>Clear</button> </div>");
+
+        $("#clearButton").click(function(){
+
+            blackjack.clearTheBoard();
+
+        $("#clearButton").remove();
+        $("#dealButton").show();
+        });
+    };
 };
 
 

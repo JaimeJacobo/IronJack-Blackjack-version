@@ -6,7 +6,8 @@ $("#startNewGameButton").click(function(){
 
     $("#hitButton").hide();
     $("#standButton").hide();
-    $("#dealerButton").show();
+    $("#dealButton").show();
+    $("#clearButton").hide();
 
     $("#footerDiv2").show();
 
@@ -42,6 +43,15 @@ $("#hitButton").click(function(){
     $("#playerCount").text('(' + blackjack.playerCount + ')');
 
     $("#playerCardsDiv").append("<p>" + blackjack.getCardImage(blackjack.playerHand[blackjack.playerHand.length - 1].name) + "</p>");
+
+    if(blackjack.playerCount > 21){
+
+        setTimeout(function(){
+            alert('YOU LOSE! You bust.');
+        }, 100);
+
+        blackjack.endGame();
+    };
 });
 
 
@@ -49,15 +59,25 @@ $("#standButton").click(function(){
 
     blackjack.standAndCompareHands();
 
-    $("#hitButton").hide();
-    $("#standButton").hide();
-    $("#footerDiv2").append("<div id='clearButton'> <button type='button' class='btn btn-secondary'>Clear</button> </div>");
+    if(blackjack.dealerCount > 21) {
+        setTimeout(function(){
+            alert('YOU WIN! Dealer busts.');
+        }, 100);
 
-    $("#clearButton").click(function(){
+        blackjack.endGame();
 
-        blackjack.clearTheBoard();
+    } else if(blackjack.playerCount > blackjack.dealerCount){
+        setTimeout(function(){
+            alert("YOU WIN! Your hand is better than the dealer's.");
+        }, 100);
 
-    $("#clearButton").remove();
-    $("#dealButton").show();
-    });
+        blackjack.endGame();
+
+    } else if(blackjack.dealerCount > blackjack.playerCount){
+        setTimeout(function(){
+            alert("YOU LOOSE! Your hand is worse than the dealer's.");
+        }, 100);
+
+        blackjack.endGame();
+    };
 });
