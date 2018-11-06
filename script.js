@@ -27,16 +27,37 @@ class Game {
 
     startNewGame() {
         this.clearTheBoard();
+
+
     };
 
 
-    resetHandsAndCounts() {
+    clearTheBoard() {
+        
+        $("#playerCardsDiv").empty();
+        $("#dealerCardsDiv").empty();
+        
+        $("#playerCardsDiv").append("<p id = 'playerCount' class='countSize'> (0) </p>");
+        $("#dealerCardsDiv").append("<p id = 'dealerCount' class='countSize'> (0) </p>");
 
         this.playerHand = new Array();
         this.dealerHand = new Array();
+        this.totalBet = 0;
         this.playerCount = 0;
         this.dealerCount = 0;
+
+        $("#clearButton").remove();
+        $("#whiteChip").show();
+        $("#redChip").show();
+        $("#blueChip").show();
+        $("#dealButton").show();
+
+        $("#totalBet").text('0$');
+        $("#totalMoney").text(this.totalMoney + '$');
+
+
     };
+
 
     bet(betInt) {
 
@@ -78,6 +99,7 @@ class Game {
 
         this.dealerCount += this.deckOfCards[randomNumber].value;
 
+
         $("#dealerCardsDiv").append("<p>" + blackjack.getCardImage(blackjack.dealerHand[blackjack.dealerHand.length - 1].name) + "</p>");
     };
 
@@ -86,7 +108,7 @@ class Game {
         
         while(this.dealerCount < 17){
 
-            this.dealerHit();
+                this.dealerHit();
         };
 
         $("#dealerCount").text('(' + this.dealerCount + ')');
@@ -100,19 +122,6 @@ class Game {
     compareResults(){
 
     };
-
-
-    clearTheBoard() {
-        
-        $("#playerCardsDiv").empty();
-        $("#dealerCardsDiv").empty();
-        
-        $("#playerCardsDiv").append("<p id = 'playerCount' class='countSize'> (0) </p>");
-        $("#dealerCardsDiv").append("<p id = 'dealerCount' class='countSize'> (0) </p>");
-
-        this.resetHandsAndCounts();
-    };
-
 
     getCardImage(cardName) {
 
@@ -291,6 +300,7 @@ class Game {
     };
 
     endGame() {
+
         $("#hitButton").hide();
         $("#standButton").hide();
         $("#footerDiv2").append("<div id='clearButton'> <button type='button' class='btn btn-secondary'>Clear</button> </div>");
@@ -298,9 +308,6 @@ class Game {
         $("#clearButton").click(function(){
 
             blackjack.clearTheBoard();
-
-        $("#clearButton").remove();
-        $("#dealButton").show();
         });
     };
 };

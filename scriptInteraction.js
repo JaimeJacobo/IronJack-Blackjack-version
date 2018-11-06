@@ -18,21 +18,30 @@ $("#startNewGameButton").click(function(){
 
 $("#dealButton").click(function(){
 
-    $("#hitButton").show();
-    $("#standButton").show();
+    if(blackjack.totalBet == 0){
+        alert('Place, place your bet');
+        
+    } else {
 
-    blackjack.shuffleAndDealCards();
+        $("#hitButton").show();
+        $("#standButton").show();
+        $("#whiteChip").hide();
+        $("#redChip").hide();
+        $("#blueChip").hide();
 
-    $("#playerCount").text('(' + blackjack.playerCount + ')');
+        blackjack.shuffleAndDealCards();
 
-    $("#dealerCount").text('(' + blackjack.dealerCount + ')');
+        $("#playerCount").text('(' + blackjack.playerCount + ')');
+
+        $("#dealerCount").text('(' + blackjack.dealerCount + ')');
 
 
-    $("#playerCardsDiv").append("<p>" + blackjack.getCardImage(blackjack.playerHand[0].name) + "</p>" + "<p>" + blackjack.getCardImage(blackjack.playerHand[1].name) + "</p>");
+        $("#playerCardsDiv").append("<p>" + blackjack.getCardImage(blackjack.playerHand[0].name) + "</p>" + "<p>" + blackjack.getCardImage(blackjack.playerHand[1].name) + "</p>");
 
-    $("#dealerCardsDiv").append("<p>" + blackjack.getCardImage(blackjack.dealerHand[0].name) + "</p>");
+        $("#dealerCardsDiv").append("<p>" + blackjack.getCardImage(blackjack.dealerHand[0].name) + "</p>");
 
-    $("#dealButton").hide();
+        $("#dealButton").hide();
+    }; 
 });
 
 
@@ -64,6 +73,7 @@ $("#standButton").click(function(){
             alert('YOU WIN! Dealer busts.');
         }, 100);
 
+        blackjack.totalMoney += blackjack.totalBet * 2;
         blackjack.endGame();
 
     } else if(blackjack.playerCount > blackjack.dealerCount){
@@ -71,13 +81,45 @@ $("#standButton").click(function(){
             alert("YOU WIN! Your hand is better than the dealer's.");
         }, 100);
 
+        blackjack.totalMoney += blackjack.totalBet * 2;
         blackjack.endGame();
 
     } else if(blackjack.dealerCount > blackjack.playerCount){
         setTimeout(function(){
-            alert("YOU LOOSE! Your hand is worse than the dealer's.");
+            alert("YOU LOSE! Your hand is worse than the dealer's.");
         }, 100);
 
         blackjack.endGame();
+    } else if(blackjack.dealerCount == blackjack.playerCount){
+        setTimeout(function(){
+        alert("PUSH! Your hand has the same value than the dealer's")
+        }, 100);
+
+        blackjack.totalMoney += blackjack.totalBet;
+        blackjack.endGame();
     };
+});
+
+$("#whiteChip").click(()=>{
+
+    blackjack.totalBet += 10;
+    blackjack.totalMoney -= 10;
+    $("#totalBet").text(blackjack.totalBet + '$');
+    $("#totalMoney").text(blackjack.totalMoney + '$');
+});
+
+$("#redChip").click(()=>{
+
+    blackjack.totalBet += 25;
+    blackjack.totalMoney -= 25;
+    $("#totalBet").text(blackjack.totalBet + '$');
+    $("#totalMoney").text(blackjack.totalMoney + '$');
+});
+
+$("#blueChip").click(()=>{
+
+    blackjack.totalBet += 50;
+    blackjack.totalMoney -= 50;
+    $("#totalBet").text(blackjack.totalBet + '$');
+    $("#totalMoney").text(blackjack.totalMoney + '$');
 });
