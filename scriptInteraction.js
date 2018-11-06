@@ -8,6 +8,7 @@ $("#startNewGameButton").click(function(){
     $("#standButton").hide();
     $("#dealButton").show();
     $("#clearButton").hide();
+  
 
     $("#footerDiv2").show();
 
@@ -66,6 +67,8 @@ $("#dealButton").click(function(){
 
 $("#hitButton").click(function(){
     
+    
+
     blackjack.playerHit();
 
     $("#playerCount").text('(' + blackjack.playerCount + ')');
@@ -106,6 +109,8 @@ $("#hitButton").click(function(){
 
 
 $("#standButton").click(function(){
+
+    
 
     blackjack.standAndCompareHands();
 
@@ -177,3 +182,4 @@ $("#blueChip").click(()=>{
         alert("You don't have enough money to make this bet.");
     };
 });
+
