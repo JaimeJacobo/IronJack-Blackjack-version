@@ -37,8 +37,7 @@ class Game {
         $("#playerCardsDiv").empty();
         $("#dealerCardsDiv").empty();
         
-        $("#playerCardsDiv").append("<p id = 'playerCount' class='countSize'> (0) </p>");
-        $("#dealerCardsDiv").append("<p id = 'dealerCount' class='countSize'> (0) </p>");
+        
 
         this.playerHand = new Array();
         this.dealerHand = new Array();
@@ -51,9 +50,10 @@ class Game {
         $("#redChip").show();
         $("#blueChip").show();
         $("#dealButton").show();
+        
     
 
-        $("#totalBet").text('0$');
+        
         $("#totalMoney").text(this.totalMoney + '$');
 
 
@@ -341,6 +341,8 @@ class Game {
         $("#footerDiv2").append("<div id='clearButton'> <button type='button' class='btn btn-secondary'>Clear</button> </div>");
 
         $("#clearButton").click(function(){
+            
+            $("#totalBet").hide();
 
             blackjack.clearTheBoard();
         });

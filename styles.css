@@ -110,13 +110,19 @@ p {
     font-size: 26px;
 }
 
-#footerDiv2 p {
-    font-size: 26px;
+#footerDiv2 {
+    background-color: rgb(223,223,83);
+    
 }
+
 
 #footerDiv2 p {
     font-size: 26px;
 }
+
+/* #footerDiv2 p {
+    font-size: 26px;
+} */
 
 button {
     display: block;
@@ -142,8 +148,22 @@ button {
 
 .easterEgg {
     height: 100vh;
+    margin-left: 33vh;
+
 }
 
 #playerCardsDiv {
-    margin-top: 150px;
+    margin-top: 61px;
+}
+
+#totalBet {
+    margin-top: 51px;
+}
+
+#dealerCardsDiv {
+    margin-top: 43px;
+}
+
+#totalMoney {
+    margin: 0 0;
 }

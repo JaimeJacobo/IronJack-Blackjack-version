@@ -1,8 +1,14 @@
 
 $("#footerDiv2").hide();
+$("#dealerCardsDiv").text('');
+$("#totalBet").text('');
+$("#playerCardsDiv").text('');
+
 
 
 $("#startNewGameButton").click(function(){
+
+    
 
     $("#hitButton").hide();
     $("#standButton").hide();
@@ -11,6 +17,12 @@ $("#startNewGameButton").click(function(){
   
 
     $("#footerDiv2").show();
+    // $("#dealerCardsDiv").hide();
+    // $("#totalBet").hide();
+    // $("#playerCardsDiv").hide();
+    // $("#dealerCardsDiv").show();
+    // $("#totalBet").show();
+    // $("#playerCardsDiv").show();
 
     blackjack = new Game;
     blackjack.startNewGame();  
@@ -18,6 +30,13 @@ $("#startNewGameButton").click(function(){
 
 
 $("#dealButton").click(function(){
+
+    $("#totalBet").show();
+    $("#moneySpan").remove();
+
+    $("#playerCardsDiv").append("<p id = 'playerCount' class='countSize'> (0) </p>");
+    $("#dealerCardsDiv").append("<p id = 'dealerCount' class='countSize'> (0) </p>");
+    $("#totalBet").text(blackjack.totalBet + '$');
 
     if(blackjack.totalBet == 0){
         alert('Place, place your bet');
@@ -57,7 +76,7 @@ $("#dealButton").click(function(){
         if(blackjack.playerHand[0].name == '4' && blackjack.playerHand[1].name == '4'){
 
             $("#header").click(function(){
-                $("body").html('<img src="images//dancing_banana21.gif" class="easterEgg"><img src="images//dancing_banana21.gif" class="easterEgg">');
+                $("body").html('<img src="images//dancing_banana21.gif" class="easterEgg">');
             })
 
         };
@@ -151,8 +170,8 @@ $("#whiteChip").click(()=>{
     if((blackjack.totalMoney - 10) > -1){
         blackjack.totalBet += 10;
         blackjack.totalMoney -= 10;
-        $("#totalBet").text(blackjack.totalBet + '$');
         $("#totalMoney").text(blackjack.totalMoney + '$');
+        $("#totalMoney").append('<span id="moneySpan" style="font-size: 20px;">(' + blackjack.totalBet + '$)</span>');
     } else {
         alert("You don't have enough money to make this bet.");
     };
@@ -164,8 +183,8 @@ $("#redChip").click(()=>{
     if((blackjack.totalMoney - 50) > -1){
         blackjack.totalBet += 50;
         blackjack.totalMoney -= 50;
-        $("#totalBet").text(blackjack.totalBet + '$');
         $("#totalMoney").text(blackjack.totalMoney + '$');
+        $("#totalMoney").append('<span id="moneySpan" style="font-size: 20px;">(' + blackjack.totalBet + '$)</span>');
     } else {
         alert("You don't have enough money to make this bet.");
     };
@@ -176,8 +195,8 @@ $("#blueChip").click(()=>{
     if((blackjack.totalMoney - 100) > -1){
         blackjack.totalBet += 100;
         blackjack.totalMoney -= 100;
-        $("#totalBet").text(blackjack.totalBet + '$');
         $("#totalMoney").text(blackjack.totalMoney + '$');
+        $("#totalMoney").append('<span id="moneySpan" style="font-size: 20px;">(' + blackjack.totalBet + '$)</span>');
     } else {
         alert("You don't have enough money to make this bet.");
     };
