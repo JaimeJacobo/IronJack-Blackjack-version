@@ -38,15 +38,9 @@ MY CSS */
    
 }
 
-#spade {
-    height: 14vh;
-}
-
 .sizeOfTheCardsOnTheTable {
     height: 16vh;
 }
-
-
 
 #header h1 {
     font-size: 5em;
@@ -158,6 +152,8 @@ button {
 
 #totalBet {
     margin-top: 51px;
+    background-color: rgb(0,101,26);
+    padding: 0 7px;
 }
 
 #dealerCardsDiv {

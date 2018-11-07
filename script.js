@@ -2,11 +2,11 @@
 class Game {
     constructor(){
         this.deckOfCards = [
-            // {name: 'A', value: 11},
+            {name: 'A', value: 11},
             // {name: '2', value: 2}, 
             // {name: '3', value: 3}, 
-            {name: '4', value: 4}, 
-            {name: '5', value: 5}, 
+            // {name: '4', value: 4}, 
+            // {name: '5', value: 5}, 
             // {name: '6', value: 6}, 
             // {name: '7', value: 7}, 
             // {name: '8', value: 8}, 
@@ -14,7 +14,7 @@ class Game {
             // {name: '10', value: 10}, 
             // {name: 'J', value: 10}, 
             // {name: 'Q', value: 10}, 
-            // {name: 'K', value: 10}
+            {name: 'K', value: 10}
         ];
         this.playerHand = new Array();
         this.dealerHand = new Array();

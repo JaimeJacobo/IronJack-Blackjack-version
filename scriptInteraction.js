@@ -67,7 +67,7 @@ $("#dealButton").click(function(){
 
             setTimeout(function(){
                 alert('BLACKJACK! YOU WIN!');
-            },100);
+            },300);
 
             blackjack.totalMoney += (blackjack.totalBet * 2) + (blackjack.totalBet / 2);
             blackjack.endGame();
