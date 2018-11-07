@@ -91,7 +91,7 @@ $("#dealButton").click(function(){
 
             setTimeout(function(){
                 alert('BLACKJACK! YOU WIN!');
-            },300);
+            },700);
 
             blackjack.totalMoney += (blackjack.totalBet * 2) + (blackjack.totalBet / 2);
             blackjack.endGame();
@@ -144,7 +144,7 @@ $("#hitButton").click(function(){
 
             setTimeout(function(){
                 alert('YOU LOSE! You bust.');
-            }, 100);
+            }, 500);
 
             blackjack.endGame();
         };
@@ -161,7 +161,7 @@ $("#standButton").click(function(){
     if(blackjack.dealerCount > 21) {
         setTimeout(function(){
             alert('YOU WIN! Dealer busts.');
-        }, 100);
+        }, 500);
 
         blackjack.totalMoney += blackjack.totalBet * 2;
         blackjack.endGame();
@@ -169,7 +169,7 @@ $("#standButton").click(function(){
     } else if(blackjack.playerCount > blackjack.dealerCount){
         setTimeout(function(){
             alert("YOU WIN! Your hand is better than the dealer's.");
-        }, 100);
+        }, 500);
 
         blackjack.totalMoney += blackjack.totalBet * 2;
         blackjack.endGame();
@@ -177,13 +177,13 @@ $("#standButton").click(function(){
     } else if(blackjack.dealerCount > blackjack.playerCount){
         setTimeout(function(){
             alert("YOU LOSE! Your hand is worse than the dealer's.");
-        }, 100);
+        }, 500);
 
         blackjack.endGame();
     } else if(blackjack.dealerCount == blackjack.playerCount){
         setTimeout(function(){
         alert("PUSH! Your hand has the same value than the dealer's")
-        }, 100);
+        }, 500);
 
         blackjack.totalMoney += blackjack.totalBet;
         blackjack.endGame();
