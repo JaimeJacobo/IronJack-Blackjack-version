@@ -111,7 +111,7 @@ $("#dealButton").click(function(){
 
 $("#hitButton").click(function(){
     
-    
+    $("#doubleButton").remove();
 
     blackjack.playerHit();
 
@@ -154,7 +154,7 @@ $("#hitButton").click(function(){
 
 $("#standButton").click(function(){
 
-    
+    $("#doubleButton").remove();
 
     blackjack.standAndCompareHands();
 
@@ -231,5 +231,9 @@ $("#blueChip").click(()=>{
     } else {
         alert("You don't have enough money to make this bet.");
     };
+});
+
+$("#easterEggKey").click(()=>{
+    blackjack.deckOfCards = [{name: '4', value: 4}];
 });
 
