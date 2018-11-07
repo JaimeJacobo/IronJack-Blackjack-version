@@ -341,10 +341,11 @@ class Game {
         $("#footerDiv2").append("<div id='clearButton'> <button type='button' class='btn btn-secondary'>Clear</button> </div>");
 
         $("#clearButton").click(function(){
-            
+
             $("#totalBet").hide();
 
             blackjack.clearTheBoard();
+            $("#dealButton").hide();
         });
     };
 };

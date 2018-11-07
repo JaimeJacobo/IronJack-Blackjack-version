@@ -9,14 +9,14 @@ $("#playerCardsDiv").text('');
 $("#startNewGameButton").click(function(){
 
     
-
+    $("#totalBet").hide();
     $("#hitButton").hide();
     $("#standButton").hide();
-    $("#dealButton").show();
     $("#clearButton").hide();
   
 
     $("#footerDiv2").show();
+    
     // $("#dealerCardsDiv").hide();
     // $("#totalBet").hide();
     // $("#playerCardsDiv").hide();
@@ -26,6 +26,7 @@ $("#startNewGameButton").click(function(){
 
     blackjack = new Game;
     blackjack.startNewGame();  
+    $("#dealButton").hide();
 });
 
 
@@ -167,6 +168,8 @@ $("#standButton").click(function(){
 
 $("#whiteChip").click(()=>{
 
+    $("#dealButton").show();
+
     if((blackjack.totalMoney - 10) > -1){
         blackjack.totalBet += 10;
         blackjack.totalMoney -= 10;
@@ -180,6 +183,8 @@ $("#whiteChip").click(()=>{
 
 $("#redChip").click(()=>{
 
+    $("#dealButton").show();
+
     if((blackjack.totalMoney - 50) > -1){
         blackjack.totalBet += 50;
         blackjack.totalMoney -= 50;
@@ -191,6 +196,8 @@ $("#redChip").click(()=>{
 });
 
 $("#blueChip").click(()=>{
+
+    $("#dealButton").show();
 
     if((blackjack.totalMoney - 100) > -1){
         blackjack.totalBet += 100;
