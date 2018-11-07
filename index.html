@@ -28,6 +28,10 @@
             </h1>
     </div>
 
+    <button type="button" class="btn btn-primary absolute" data-toggle="modal" data-target="#exampleModalCenter">
+            Instructions
+        </button>
+
     <div id="dealerCards" class="flexCentered margin">
         <div id="dealerCardsDiv" class="flexSpaceEvenly width60">
            
@@ -72,18 +76,41 @@
             </div>
             <div id="chips">
                 <div id="whiteChip">
-                   <img src="images//whiteChip.png">
+                   <img src="images//pokerchip1.png">
                 </div>
                 <div id="redChip">
-                    <img src="images//redChip.png">
+                    <img src="images//pokerchip3.png">
                 </div>
                 <div id="blueChip">
-                    <img src="images//blueChip.png">
+                    <img src="images//pokerchip2.png">
                 </div>
             </div>
             <div id="dealButton">
                 <button type="button" class="btn btn-info">Deal</button>
             </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Blackjack</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                    <h1 class="sizeOfTheInstructions">Object of the game:</h1>
+
+                    <p>The player attempts to beat the dealer by getting a count as close to 21 as possible, without going over 21. 
+                    ruhguehr</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
         </div>
     </div>
 </div>

@@ -163,3 +163,17 @@ button {
 #totalMoney {
     margin: 0 0;
 }
+
+.absolute {
+    position: absolute;
+    top: 0px;
+    left: 1153px;
+}
+
+.modal-body p {
+    font-size: 1rem;
+}
+
+.modal-body h1 {
+    font-size: 1.25rem;
+}
