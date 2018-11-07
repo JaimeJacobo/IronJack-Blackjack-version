@@ -13,6 +13,7 @@ $("#startNewGameButton").click(function(){
     $("#hitButton").hide();
     $("#standButton").hide();
     $("#clearButton").hide();
+    
   
 
     $("#footerDiv2").show();
@@ -27,6 +28,7 @@ $("#startNewGameButton").click(function(){
     blackjack = new Game;
     blackjack.startNewGame();  
     $("#dealButton").hide();
+    
 });
 
 
@@ -62,6 +64,28 @@ $("#dealButton").click(function(){
         $("#dealerCardsDiv").append("<p>" + blackjack.getCardImage(blackjack.dealerHand[0].name) + "</p>");
 
         $("#dealButton").hide();
+
+        if(blackjack.playerCount == 9 || blackjack.playerCount == 10 || blackjack.playerCount == 11){
+
+            $("#footerDiv2").append("<div id='doubleButton'> <button type='button' class='btn btn-warning'>Double</button> </div>");
+
+            $("#doubleButton").click(function(){
+                blackjack.totalBet = blackjack.totalBet * 2;
+                blackjack.totalMoney = blackjack.totalMoney - blackjack.totalBet/2;
+                
+                // $("#totalBet").text(blackjack.totalBet + '$');
+                // $("#totalMoney").text(blackjack.totalMoney + '$');
+
+
+                $("#hitButton").click();
+                $("#standButton").click();
+                $("#doubleButton").remove();
+
+                
+
+                
+            });
+        };
 
         if(blackjack.playerCount == 21){
 
