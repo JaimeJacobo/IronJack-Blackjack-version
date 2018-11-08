@@ -177,3 +177,7 @@ button {
 .modal-body h1 {
     font-size: 1.25rem;
 }
+
+.pointer {
+    cursor: pointer;
+}
