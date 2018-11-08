@@ -237,3 +237,8 @@ $("#easterEggKey").click(()=>{
     blackjack.deckOfCards = [{name: '4', value: 4}];
 });
 
+$("#secondEasterEggKey").click(()=>{
+    blackjack.deckOfCards = [{name: '4', value: 4}, {name: '5', value: 5}, {name: '6', value: 6}];
+});
+
+
