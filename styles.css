@@ -45,6 +45,8 @@ MY CSS */
 #header h1 {
     font-size: 5em;
     color: rgb(224, 224, 42);
+    font-family: roboto monospace;
+    font-weight: 700;
 }
 
 .flexCentered {
