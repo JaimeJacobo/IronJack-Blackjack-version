@@ -61,7 +61,7 @@ $("#dealButton").click(function(){
 
         $("#playerCardsDiv").append("<p>" + blackjack.getCardImage(blackjack.playerHand[0].name) + "</p>" + "<p>" + blackjack.getCardImage(blackjack.playerHand[1].name) + "</p>");
 
-        $("#dealerCardsDiv").append("<p>" + blackjack.getCardImage(blackjack.dealerHand[0].name) + "</p>");
+        $("#dealerCardsDiv").append("<p>" + blackjack.getCardImage(blackjack.dealerHand[0].name) + "<p id=\"backCard\"><img src='images//gray_back.png' class='sizeOfTheCardsOnTheTable'></p>");
 
         $("#dealButton").hide();
 
@@ -155,6 +155,7 @@ $("#hitButton").click(function(){
 $("#standButton").click(function(){
 
     $("#doubleButton").remove();
+    $("#backCard").remove();
 
     blackjack.standAndCompareHands();
 
