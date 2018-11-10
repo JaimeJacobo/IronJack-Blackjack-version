@@ -150,15 +150,6 @@ class Game {
         
     };
 
-
-    double() {
-
-    };
-
-    compareResults(){
-
-    };
-
     getCardImage(cardName) {
 
         let arrayOfFourElements = ['L', 'O', 'V', 'E'];

@@ -144,6 +144,7 @@ $("#hitButton").click(function(){
 
             setTimeout(function(){
                 alert('YOU LOSE! You bust.');
+                $("#playerBustModal").modal('show')
             }, 500);
 
             blackjack.endGame();
