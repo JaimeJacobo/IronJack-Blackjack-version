@@ -89,13 +89,30 @@ $("#dealButton").click(function(){
 
         if(blackjack.playerCount == 21){
 
-            setTimeout(function(){
-                alert('BLACKJACK! YOU WIN!');
+            setTimeout(()=>{
+                $("#backCard").remove();
+        
+                blackjack.dealerHit();
+                $("#dealerCount").text('(' + blackjack.dealerCount + ')');
+
+                if(blackjack.dealerCount != 21){
+                    setTimeout(function(){
+                        $("#blackjackModal").modal("show");
+                    },700);
+        
+                    blackjack.totalMoney += (blackjack.totalBet * 2) + (blackjack.totalBet / 2);
+                    blackjack.endGame();
+
+                } else if(blackjack.dealerCount == 21) {
+                    setTimeout(function(){
+                        $("#blackjackPushModal").modal("show");
+                    },700);
+
+                    blackjack.totalMoney += blackjack.totalBet;
+                    
+                    blackjack.endGame();
+                };
             },700);
-
-            blackjack.totalMoney += (blackjack.totalBet * 2) + (blackjack.totalBet / 2);
-            blackjack.endGame();
-
         };
 
         if(blackjack.playerHand[0].name == '4' && blackjack.playerHand[1].name == '4'){
