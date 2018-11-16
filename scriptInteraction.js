@@ -1,7 +1,8 @@
 
 $("#footerDiv2").hide();
 $("#dealerCardsDiv").text('');
-$("#totalBet").text('');
+$("#totalbet").hide();
+$("#actualBetDiv").hide();
 $("#playerCardsDiv").text('');
 
 
@@ -35,6 +36,7 @@ $("#startNewGameButton").click(function(){
 $("#dealButton").click(function(){
 
     $("#totalBet").show();
+    $("#actualBetDiv").show();
     $("#moneySpan").remove();
 
     $("#playerCardsDiv").append("<p id = 'playerCount' class='countSize'> (0) </p>");
@@ -251,12 +253,12 @@ $("#blueChip").click(()=>{
     };
 });
 
-$("#easterEggKey").click(()=>{
-    blackjack.deckOfCards = [{name: '4', value: 4}];
-});
+// $("#easterEggKey").click(()=>{
+//     blackjack.deckOfCards = [{name: '4', value: 4}];
+// });
 
-$("#secondEasterEggKey").click(()=>{
-    blackjack.deckOfCards = [{name: '4', value: 4}, {name: '5', value: 5}, {name: '6', value: 6}];
-});
+// $("#secondEasterEggKey").click(()=>{
+//     blackjack.deckOfCards = [{name: '4', value: 4}, {name: '5', value: 5}, {name: '6', value: 6}];
+// });
 
 
