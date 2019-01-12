@@ -190,3 +190,40 @@ button {
 .red {
     color: red;
 }
+
+.displayOn {
+    
+}
+
+.displayOff {
+    display: none;
+}
+#alternativeContent {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+#alternativeContent p {
+    padding: 20px;
+    text-align: center;
+    font-size: 2em;
+}
+
+#alternativeContent img {
+    width: 80vw;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 1270px){
+    .displayOn{
+        display: none;
+    }
+
+    .displayOff {
+        display: block;
+    }
+}
